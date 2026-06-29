@@ -1,0 +1,258 @@
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 38px;
+}
+
+header p {
+  color: #64748b;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+input,
+button {
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+input {
+  width: 220px;
+  color: #111827;
+  background: white;
+  border: 1px solid #94a3b8;
+  outline: none;
+}
+
+input:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px #dc262626;
+}
+
+button {
+  color: white;
+  background: #dc2626;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+button:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.secondary-button {
+  background: #334155;
+}
+
+.secondary-button:hover {
+  background: #1e293b;
+}
+
+.reset-button {
+  background: #64748b;
+}
+
+.reset-button:hover {
+  background: #475569;
+}
+
+.message {
+  min-height: 24px;
+  color: #334155;
+  font-weight: bold;
+}
+
+.tree-area {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: 450px;
+  margin-top: 25px;
+  padding: 30px;
+  overflow: auto;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px #00000014;
+}
+
+.tree-container {
+  display: flex;
+  justify-content: center;
+  min-width: max-content;
+  padding: 20px;
+}
+
+.tree-node-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rb-node {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  box-shadow: 0 5px 12px #0004;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
+}
+
+.red-node {
+  background: #dc2626;
+  border: 3px solid #fecaca;
+}
+
+.black-node {
+  background: #111827;
+  border: 3px solid #94a3b8;
+}
+
+.highlighted-node {
+  border-color: #facc15;
+  transform: scale(1.15);
+  box-shadow: 0 0 22px #facc15;
+}
+
+.children {
+  position: relative;
+  display: flex;
+  padding-top: 40px;
+}
+
+.children::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 20px;
+  border-left: 2px solid #64748b;
+  content: "";
+}
+
+.child {
+  position: relative;
+  min-width: 110px;
+  padding: 20px 22px 0;
+}
+
+.child::after {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  height: 20px;
+  border-left: 2px solid #64748b;
+  content: "";
+}
+
+.left-child::before,
+.right-child::before {
+  position: absolute;
+  top: 20px;
+  width: 50%;
+  border-top: 2px solid #64748b;
+  content: "";
+}
+
+.left-child::before {
+  left: 50%;
+}
+
+.right-child::before {
+  right: 50%;
+}
+
+.child:empty::before,
+.child:empty::after {
+  display: none;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+}
+
+.legend-circle {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.legend-circle.red {
+  background: #dc2626;
+}
+
+.legend-circle.black {
+  background: #111827;
+}
+
+@media (max-width: 650px) {
+  .app {
+    padding: 25px 10px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input,
+  button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .tree-area {
+    justify-content: flex-start;
+    min-height: 400px;
+    padding: 20px 10px;
+  }
+
+  .legend {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
